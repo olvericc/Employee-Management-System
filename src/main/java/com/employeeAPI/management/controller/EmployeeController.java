@@ -33,13 +33,13 @@ public class EmployeeController
         return employeeService.getEmployeeById(id);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public Employee updateEmployee(@PathVariable int id, @RequestBody Employee employee)
     {
         return employeeService.updateEmployee(id, employee);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable int id)
     {
         employeeService.deleteEmployee(id);
