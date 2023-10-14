@@ -1,13 +1,15 @@
 import HeaderComponent from "./component/HeaderComponent";
 import FooterComponent from "./component/FooterComponent";
 import ListEmployeeComponent from "./component/ListEmployeeComponent";
+import AddEmployeeComponent from "./component/AddEmployeeComponent";
 
 function App() {
   return (
     <div>
         <HeaderComponent/>
-        <FooterComponent/>
+        <AddEmployeeComponent/>
         <ListEmployeeComponent/>
+        <FooterComponent/>
     </div>
   );
 }
