@@ -1,8 +1,33 @@
-import React from 'react'
+import axios from 'axios';
+import React, {useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import EmployeeService from "../service/EmployeeService";
 
 const ListEmployeeComponent = () =>
 {
+    const [employeeArray, setEmployeeArray] = useState([]);
+    useEffect(() =>
+    {
+        getAllEmployee();
+    }, []);
+
+    function getAllEmployee ()
+    {
+        EmployeeService.getAllEmployee()
+        .then
+        (
+            res =>
+            {
+                setEmployeeArray(res.data);
+                console.log(res)
+            }
+        )
+        .catch
+        (
+            e => console.log(e)
+        );
+    }
+
     return (
         <div className='container'>
             <Link to={"/add-employee"} className='btn btn-dark mb-5 mt-5 align-items-lg-center' href="">Add New Employee</Link>
