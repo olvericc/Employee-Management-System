@@ -33,14 +33,30 @@ const ListEmployeeComponent = () =>
             <Link to={"/add-employee"} className='btn btn-dark mb-5 mt-5 align-items-lg-center' href="">Add New Employee</Link>
             <h2 className='text-center mb-4 mt-4 '>List of Employees</h2>
             <table className='table table-bordered table striped'>
-                <thead>
-                    <th>Employee ID</th>
-                    <th>Employee First Name</th>
-                    <th>Employee Last Name</th>
-                    <th>Employee Email</th>
+                <thead className='text-center'>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
                     <th>Actions</th>
                 </thead>
-                <tbody>
+                <tbody className='text-center'>
+                    {
+                        employeeArray.map
+                        (
+                            employee =>
+                            <tr id={employee.id}>
+                                <td>{employee.id}</td>
+                                <td>{employee.firstName}</td>
+                                <td>{employee.lastName}</td>
+                                <td>{employee.email}</td>
+                                <td>
+                                    <a className="btn btn-warning" href="">Update</a> {" "}
+                                    <a className="btn btn-danger" href="">Delete</a>
+                                </td>
+                            </tr>
+                        )
+                    }
                 </tbody>
             </table>
         </div>
