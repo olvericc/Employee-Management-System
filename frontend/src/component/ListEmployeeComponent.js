@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const ListEmployeeComponent = () =>
 {
     return (
         <div className='container'>
-            <a className='btn btn-dark mb-5 mt-5 align-items-lg-center' href="">Add New Employee</a>
+            <Link to={"/add-employee"} className='btn btn-dark mb-5 mt-5 align-items-lg-center' href="">Add New Employee</Link>
             <h2 className='text-center mb-4 mt-4 '>List of Employees</h2>
             <table className='table table-bordered table striped'>
                 <thead>
