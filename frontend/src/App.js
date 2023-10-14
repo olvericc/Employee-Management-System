@@ -1,6 +1,10 @@
+import HeaderComponent from "./component/HeaderComponent";
+
 function App() {
   return (
-    <div></div>
+    <div>
+      <HeaderComponent/>
+    </div>
   );
 }
 
