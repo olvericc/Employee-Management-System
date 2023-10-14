@@ -5,9 +5,9 @@ const HeaderComponent = () =>
     return (
         <div>
             <header>
-                <nav className='navbar navbar-expand-md navbar-dark bg-dark p-3'>
+                <nav className='header'>
                     <div>
-                        <a className='navbar-brand m-5' href="#">Employee Management App</a>
+                        <p>Employee Management App - CRUD</p>
                     </div>
                 </nav>
             </header>
