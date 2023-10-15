@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, {useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
+import axios from "axios";
 
 const ListEmployeeComponent = () =>
 {
@@ -27,7 +27,20 @@ const ListEmployeeComponent = () =>
             e => console.log(e)
         );
     }
+    function deleteEmployee (event, id)
+    {
+        event.preventDefault();
 
+        EmployeeService.deleteEmployee(id)
+        .then
+        (
+            getAllEmployee()
+        )
+        .catch
+        (
+            e => console.log(e)
+        )
+    }
     return (
         <div className='container'>
             <Link to={"/add-employee"} className='btn btn-dark mb-5 mt-5 align-items-lg-center' href="">Add New Employee</Link>
@@ -52,7 +65,18 @@ const ListEmployeeComponent = () =>
                                 <td>{employee.email}</td>
                                 <td>
                                     <Link to={`/add-employee/${employee.id}`} className="btn btn-warning" href="">Update</Link> {" "}
-                                    <a className="btn btn-danger" href="">Delete</a>
+                                    <a
+                                        onClick=
+                                        {
+                                            (
+                                                event =>
+                                                {
+                                                    deleteEmployee(event, employee.id)
+                                                }
+                                            )
+                                        }
+                                        className="btn btn-danger"
+                                        href="">Delete</a>
                                 </td>
                             </tr>
                         )

@@ -28,15 +28,36 @@ const AddEmployeeComponent = () =>
 
     const employeeData = {firstName, lastName, email};
 
-    function saveEmployee(event)
+    function saveEmployee(e)
     {
-        event.preventDefault();
+        e.preventDefault();
 
         if (employeeData.firstName !== "" && employeeData.lastName !== "" && employeeData.email !== "")
         {
-            EmployeeService.saveEmployee(employeeData)
-            .then(navigate("/employee"))
-            .catch(event => console.log(event))
+            if (id)
+            {
+                EmployeeService.updateEmployee(id, employeeData)
+                .then
+                (
+                    navigate("/employee")
+                )
+                .catch
+                (
+                    e => console.log(e)
+                );
+            }
+            else
+            {
+                EmployeeService.saveEmployee(employeeData)
+                .then
+                (
+                    navigate("/employee")
+                )
+                .catch
+                (
+                    e => console.log(e)
+                );
+            }
         }
         else
         {
@@ -75,7 +96,6 @@ const AddEmployeeComponent = () =>
                     event =>
                     {
                         console.log(event);
-                        alert(event);
                     }
                 );
             }
