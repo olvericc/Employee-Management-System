@@ -158,7 +158,7 @@ const AddEmployeeComponent = () =>
                                             (event) => saveEmployee(event)
                                         }
                                     className='btn btn-success'>Save</button> {" "}
-                                <Link to={"/employee"} className='btn btn-danger'>Cancel</Link>
+                                <Link to={"/"} className='btn btn-danger'>Cancel</Link>
                             </form>
                         </div>
                     </div>
